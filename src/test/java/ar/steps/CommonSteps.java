@@ -11,12 +11,18 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.commons.lang.StringUtils;
 import org.testng.Assert;
+import services.BaseService;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
 public class CommonSteps extends PageSteps {
+    @Given("^An account created in Clockify and x-api-key '(.*)' generated$")
+    public static void AnAccountCreatedInClockifyAndTokenGenerated(String token){
+        BaseService.X_API_KEY.set(token);
+    }
+
 
     @When("^I perform a '(.*)' to '(.*)' endpoint with the '(.*)' and '(.*)'$")
     public void doRequest(String methodName, String entity, String jsonName, String jsonReplacementValues) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
@@ -37,4 +43,5 @@ public class CommonSteps extends PageSteps {
         }
         return parameters;
     }
+
 }

@@ -1,0 +1,13 @@
+{
+  "url": "{{base.url}}",
+
+  "headers": {
+    "X-Api-Key": "{{api-key}}",
+    "Content-Type": "application/json"
+  },
+"body":{
+  "color": "#5C6BC0",
+  "name": "Nuevo nombre crw"
+},
+  "endpoint": "/v1/workspaces/{{workspace-id}}/projects/{{projectId}}"
+}
